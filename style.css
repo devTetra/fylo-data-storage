@@ -1,0 +1,232 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root
+{
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --darker-blue: hsl(229, 57%, 11%);
+    --light-pink: hsl(6, 100%, 80%);
+    --pink: hsl(335, 100%, 65%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body
+{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--darker-blue);
+    background-image: url(./images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: grid;
+    grid-template: max-content auto / auto;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+}
+
+main
+{
+    width: 65vw;
+    height: 55vh;
+    display: grid;
+    grid-template: auto / auto auto;
+    align-items:end;
+    justify-content: space-evenly;
+}
+
+.logo
+{
+    background-color: var(--dark-blue);
+    width: 25vw;
+    height: 25vh;
+    border-radius: 10px;
+    border-top-right-radius: 80px;
+    display: grid;
+    grid-template: auto / auto;
+    padding: 30px;
+}
+
+.logo .actions
+{
+    width: 80%;
+    display: grid;
+    grid-template: auto / auto auto auto;
+    justify-content: space-evenly;
+}
+
+.logo .actions .action
+{
+    height: 6vh;
+    width: 3.5vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--darker-blue);
+    border-radius: 10px;
+}
+
+
+.storage
+{
+    background-color: var(--dark-blue);
+    width: 35vw;
+    height: 20vh;
+    border-radius: 8px;
+    grid-template: auto / auto auto auto;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+    color: var(--pale-blue);
+}
+
+.storage .bubble
+{
+    background-color: var(--white);
+    width: 12vw;
+    height: 8vh;
+    position: fixed;
+    top: 30%;
+    right: 22%;
+    border-radius: 10px 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grayish-blue);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.storage .bubble::before
+{
+    content: "";
+    position: absolute;
+    background-color: var(--white);
+    bottom: -25px;
+    right: 0;
+    height: 50px;
+    width: 30px;
+    clip-path: polygon( 100% 50%, 0 50%, 100% 100% );
+    border: 5px solid var(--white);
+}
+
+.storage .bubble p
+{
+    display: flex;
+    align-items: center;
+}
+
+.storage .bubble span
+{
+    font-size: 30px;
+    margin: 0px 10px;
+    color: var(--darker-blue);
+}
+
+.storage p span
+{
+    font-weight: 700;
+}
+
+.storage .bar
+{
+    width: 30vw;
+    height: 16px;
+    background-color: var(--darker-blue);
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.bar .amount
+{
+    width: 82%;
+    height: 12px;
+    background: linear-gradient(var(--light-pink), var(--pink));
+    border-radius: 6px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.bar .amount .scroller
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--pale-blue);
+    margin-right: 2px;
+}
+
+.storage .space
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.attribution 
+{ 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a 
+{ 
+    color: var(--grayish-blue); 
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    body
+    {
+        background: url(./images/bg-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-content: space-evenly;
+    }
+
+    main
+    {
+        grid-template: auto auto / auto;
+        width: 100vw;
+    }
+
+    .logo, .storage
+    {
+        width: 80vw;
+    }
+
+    .logo .actions .action
+    {
+        width: 10vw;
+    }
+
+    .storage .bubble
+    {
+        width: 40vw;
+        top: 65%;
+        right: 30%;
+        border-radius: 10px ;
+    }
+
+    .storage .bubble::before
+    {
+        display: none;
+    }
+
+    .storage .bar
+    {
+        width: 65vw;
+    }
+}
